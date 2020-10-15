@@ -20,7 +20,7 @@ disqusShortname = ""
 
   # Provide your metadata here.
   name = "Elia Waidele"
-  description = "MFA Student with a passion for finance"
+  description = "MFA Student at London Business School with a Passion for Finance"
 
   # Link custom assets relative to /static
   custom_css = []
@@ -37,7 +37,7 @@ disqusShortname = ""
 
   # Navigation Section
   [params.navigation]
-    title = "Elia"
+    title = "Elia Waidele"
     #subtitle = "Hello World!"
     menu = "Menu"
     # Optional logo as brand stored in img/
@@ -47,15 +47,15 @@ disqusShortname = ""
       name = "Home"
       url = "#"
 
-    [[params.navigation.links]]
+   # [[params.navigation.links]]
       name = "Blogs"
       url = "blogs"
 
-    [[params.navigation.links]]
+  #  [[params.navigation.links]]
       name = "Generic Blog"
       url = "blogs/ipsum"
 
-    [[params.navigation.links]]
+   # [[params.navigation.links]]
       name = "Elements"
       url = "elements.html"
 
@@ -67,12 +67,12 @@ disqusShortname = ""
     #    url = "UrlOfLink"
 
     # Button Style 1
-    [[params.navigation.button1]]
+   # [[params.navigation.button1]]
       name = "Get Started"
       url = "blogs"
 
     # Button Style 2
-    [[params.navigation.button2]]
+   # [[params.navigation.button2]]
       name = "Log In"
       url = "#"
 
@@ -81,9 +81,9 @@ disqusShortname = ""
   [params.banner]
     # To change the background image on the homepage banner, replace 'banner.jpg' in
     # the 'static/img' folder.
-    title = "Hi, my name is Elia"
-    subtitle = "A RESPONSIVE SITE TEMPLATE DESIGNED BY HTML5 UP\nAND RELEASED UNDER THE CREATIVE COMMONS."
-    buttonText = "Get Started"
+    title = "Hi, my name is Elia Waidele"
+    subtitle = "WELCOME TO MY PORTFOLIO WEBSITE!"
+    buttonText = "Get Started!"
 
 
   # Tiles Section
