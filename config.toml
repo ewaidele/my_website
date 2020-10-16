@@ -104,9 +104,9 @@ disqusShortname = ""
       url = "Projects/Project1"
 
     [[params.tiles.showcase]]
-      title = "Tempus"
-      subtitle = "Feugiat Amet Tempus"
-      image = "pic02.jpg"
+      title = "How bad is it?"
+      subtitle = "Climate Change and Temperature Anomalies"
+      image = "weather.jpg"
       url = "Projects/Project2"
 
     [[params.tiles.showcase]]
