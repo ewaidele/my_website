@@ -1,0 +1,296 @@
+---
+title: "Returns of Financial Stocks"
+author: ""
+date: ""
+output:
+  html_document:
+    theme: flatly
+    highlight: zenburn
+    number_sections: yes
+    toc: yes
+    toc_float: yes
+    code_folding: show
+  pdf_document:
+    toc: yes
+  word_document:
+    toc: yes
+---
+
+
+```{r, setup, echo=FALSE}
+knitr::opts_chunk$set(
+  message = FALSE, 
+  warning = FALSE,
+  # display code as typed
+  tidy=FALSE,     
+  # slightly smaller font for code
+  size="small")   
+options(digits = 3)
+
+# default figure size
+knitr::opts_chunk$set(
+  fig.width=6.75, 
+  fig.height=6.75,
+  fig.align = "center"
+)
+```
+
+
+```{r load-libraries, warning=FALSE, message=FALSE, echo=FALSE}
+library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
+library(mosaic)
+library(ggthemes)
+library(lubridate)
+library(fivethirtyeight)
+library(here)
+library(skimr)
+library(janitor)
+library(vroom)
+library(tidyquant)
+library(rvest)    # scrape websites
+library(purrr)  
+library(lubridate) #to handle dates
+library(kableExtra)
+library(knitr)
+library(dplyr)
+library(gapminder)
+library(ggplot2)
+library(patchwork)
+library(scales)
+library(tidytext)
+```
+
+In the following we perform analyses on Returns of a select number of Financial Stocks utilizing the monthly, yearly and daily returns to gauge behavior of these stocks over a fixed period of time. We obtain our data from the `nyse.csv` dataset which contains 508 stocks listed on the NYSE, their ticker `symbol`, `name`, the IPO year, and the sector and industry the company operates in.
+
+First of all we have to load our data set:
+
+```{r load_nyse_data, message=FALSE, warning=FALSE}
+
+nyse <- read.csv(here::here("data","nyse.csv"))
+
+```
+
+Based on this data set, we create a table and a bar plot that display the number of companies per sector in descending order.
+
+```{r companies_per_sector}
+
+# count the number of companies by sector
+
+companies_by_sector <- nyse %>%
+  
+  group_by(sector) %>%
+  
+  count() %>%
+  
+  arrange(desc(n))
+
+```
+
+```{r}
+
+companies_by_sector %>% 
+  
+  # rename for better reading
+  
+  rename(`number of companies` = n) %>% 
+  
+  # create html table
+  
+  kbl() %>%
+  
+  kable_styling()
+```
+
+```{r} 
+companies_by_sector <- nyse %>%
+  
+  group_by(sector) %>%
+  
+  summarise(count = n()) 
+
+#create a bar plot
+
+ggplot(companies_by_sector,
+       aes(x = reorder(sector, count), y = count)) + 
+  
+  geom_col(fill = "#1380A1") + 
+  
+  theme_bw()+
+  
+  theme(plot.title = element_text(face = 'bold', size = 15), 
+        axis.text.x = element_text(size = 8), 
+        axis.text.y = element_text(size= 8)) +
+
+# add label to each bar
+  geom_label(aes(label = count), 
+             hjust = 1,
+             vjust = 0.5,
+             fill = NA,
+             label.size = NA,
+             color = 'White',
+             size = 4) +
+  
+  labs(x = "", 
+       y = "Number of Companies", 
+       title = 'Finance & Consumer companies reign NYSE',
+       subtitle = 'NYSE number of companies by sector') +
+  
+  coord_flip()
+
+```
+
+> From the table and the plot we can infer that Finance and Consumer Services stocks reign NYSE. Transportation and Consumer Durables on the other hand are the least represented industries.
+
+Next, we choose six stocks and their ticker symbols and download the respective data.
+
+```{r get_price_data, message=FALSE, warning=FALSE, cache=TRUE}
+
+# Notice the cache=TRUE argument in the chunk options. Because getting data is time consuming
+
+# cache=TRUE means that once it downloads data, the chunk will not run again next time you knit your Rmd
+
+myStocks <- c("AXP","BLK","KO","AMZN","MCD","BP","SPY" ) %>%
+  
+  tq_get(get  = "stock.prices",
+         from = "2011-01-01",
+         to   = "2020-08-31") %>%
+  
+  group_by(symbol)
+
+# examine the resulting data frame
+
+glimpse(myStocks) 
+
+```
+
+Since the financial performance of a stock largely depends on a company's returns, we now calculate daily and monthly returns.
+
+```{r calculate_returns, message=FALSE, warning=FALSE, cache=TRUE}
+
+#calculate daily returns
+
+myStocks_returns_daily <- myStocks %>%
+  
+  tq_transmute(select     = adjusted, 
+               mutate_fun = periodReturn, 
+               period     = "daily", 
+               type       = "log",
+               col_rename = "daily_returns",
+               cols = c(nested.col))  
+
+#calculate monthly  returns
+
+myStocks_returns_monthly <- myStocks %>%
+  
+  tq_transmute(select     = adjusted, 
+               mutate_fun = periodReturn, 
+               period     = "monthly", 
+               type       = "arithmetic",
+               col_rename = "monthly_returns",
+               cols = c(nested.col)) 
+```
+
+Now that we have specified monthly and daily returns we can create a table containing the return data for the selected stocks.
+
+```{r summarise_monthly_returns}
+
+myStocks_returns_monthly_summary <- myStocks_returns_monthly %>%
+  
+  group_by(symbol) %>%
+  
+  summarise(min = min(monthly_returns), 
+            median = median(monthly_returns), 
+            max = max(monthly_returns), 
+            mean = mean(monthly_returns), 
+            sd = sd(monthly_returns))
+
+# calculate summary statistics for monthly returns
+
+myStocks_returns_monthly_summary %>%
+  
+  kable() %>% 
+  
+  kable_styling()
+  
+```
+
+We now create a density plot, using `geom_density()`, for each of the stocks to get a better sense of the distribution of the returns per stock.
+
+```{r density_monthly_returns}
+
+myStocks_returns_monthly %>%
+  
+  # only display density of the stocks
+  
+  filter(symbol != "SPY") %>%
+  
+  # add some color
+  
+  ggplot(aes(x = monthly_returns, fill = symbol)) +
+  
+  geom_density() + 
+  
+   # create a plot for each stock
+  
+  facet_wrap(~symbol) +
+  
+  labs(title = "Distribution of monthly returns per stock", 
+       x = "Monthly returns",
+       y = "Density") +
+  
+  # hide legend
+  
+  theme(legend.position = "none") 
+
+```
+
+>From this plot, we can infer that Blackrock (BLK) is the riskiest stock with the highest volatility given the broad distribution / deviation from 0.0 of BLK returns. On the other hand, Coca Cola (KO) is the least risky as the plot for Coca Cola displays a very low deviation of returns from 0.0.
+
+Finally, we plot the relationship between mean expected monthly returns and the return's standard deviation. 
+
+```{r risk_return_plot}
+
+myStocks_returns_monthly_summary %>% 
+  
+  # only display the stocks
+  
+  filter(symbol != "SPY") %>% 
+  
+  # plot scatterplot and increase size of points
+  
+  ggplot(aes(x=sd, y = mean,
+             label = symbol)) +
+  
+  geom_point(aes(colour = symbol),
+             size = 4) +
+  
+  # add labels to the points
+  
+  ggrepel::geom_text_repel(aes(colour = symbol)) + 
+  
+  # add title and labels to graph
+  
+  labs(title = 'Do higher risks yield higher returns?',
+       subtitle = 'Risk/Return Profile of selected Stocks',
+       x = 'Risk (SD of monthly returns)', 
+       y ="Average monthly return") +
+  
+  # use a nice theme
+  
+  theme_bw() + 
+  
+  # display x values as percentages
+  
+  scale_x_continuous(labels = scales::percent) + 
+  
+  # display y values as percentages
+  
+  scale_y_continuous(labels = scales::percent) + 
+  
+  # hide legend
+  
+  theme(legend.position = "none") 
+
+```
+
+> The plot shows Amazon (AMZN) is the stock with the strongest risk-reward profile: It yields the highest average monthly returns and is the riskiest of the selected stocks as indicated by its position on the top right corner of the graph. Indeed, higher risks generally lead to a higher mean monthly return. However, BP's position proves that a high risk does not necessarily imply a high return - BP has the lowest monthly returns while the BP stock is the second riskiest. 

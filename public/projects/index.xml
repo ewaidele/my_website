@@ -28,5 +28,15 @@ Originally a fan-operated website, the database is today owned and operated by I
 As of January 2020, IMDb has approximately 6.5 million titles (including episodes) and 10.</description>
     </item>
     
+    <item>
+      <title>Returns of Financial Stocks</title>
+      <link>/projects/project3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/project3/</guid>
+      <description>In the following we perform analyses on Returns of a select number of Financial Stocks utilizing the monthly, yearly and daily returns to gauge behavior of these stocks over a fixed period of time. We obtain our data from the nyse.csv dataset which contains 508 stocks listed on the NYSE, their ticker symbol, name, the IPO year, and the sector and industry the company operates in.
+First of all we have to load our data set:</description>
+    </item>
+    
   </channel>
 </rss>

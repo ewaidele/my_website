@@ -1,0 +1,500 @@
+---
+title: "Returns of Financial Stocks"
+author: ""
+date: ""
+output:
+  html_document:
+    theme: flatly
+    highlight: zenburn
+    number_sections: yes
+    toc: yes
+    toc_float: yes
+    code_folding: show
+  pdf_document:
+    toc: yes
+  word_document:
+    toc: yes
+---
+
+<script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
+<link href="/rmarkdown-libs/lightable/lightable.css" rel="stylesheet" />
+
+
+<p>In the following we perform analyses on Returns of a select number of Financial Stocks utilizing the monthly, yearly and daily returns to gauge behavior of these stocks over a fixed period of time. We obtain our data from the <code>nyse.csv</code> dataset which contains 508 stocks listed on the NYSE, their ticker <code>symbol</code>, <code>name</code>, the IPO year, and the sector and industry the company operates in.</p>
+<p>First of all we have to load our data set:</p>
+<pre class="r"><code>nyse &lt;- read.csv(here::here(&quot;data&quot;,&quot;nyse.csv&quot;))</code></pre>
+<p>Based on this data set, we create a table and a bar plot that display the number of companies per sector in descending order.</p>
+<pre class="r"><code># count the number of companies by sector
+
+companies_by_sector &lt;- nyse %&gt;%
+  
+  group_by(sector) %&gt;%
+  
+  count() %&gt;%
+  
+  arrange(desc(n))</code></pre>
+<pre class="r"><code>companies_by_sector %&gt;% 
+  
+  # rename for better reading
+  
+  rename(`number of companies` = n) %&gt;% 
+  
+  # create html table
+  
+  kbl() %&gt;%
+  
+  kable_styling()</code></pre>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+sector
+</th>
+<th style="text-align:right;">
+number of companies
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Finance
+</td>
+<td style="text-align:right;">
+97
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Consumer Services
+</td>
+<td style="text-align:right;">
+79
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Public Utilities
+</td>
+<td style="text-align:right;">
+60
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Capital Goods
+</td>
+<td style="text-align:right;">
+45
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Health Care
+</td>
+<td style="text-align:right;">
+45
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Energy
+</td>
+<td style="text-align:right;">
+42
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Technology
+</td>
+<td style="text-align:right;">
+40
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Basic Industries
+</td>
+<td style="text-align:right;">
+39
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Consumer Non-Durables
+</td>
+<td style="text-align:right;">
+31
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Miscellaneous
+</td>
+<td style="text-align:right;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Transportation
+</td>
+<td style="text-align:right;">
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Consumer Durables
+</td>
+<td style="text-align:right;">
+8
+</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>companies_by_sector &lt;- nyse %&gt;%
+  
+  group_by(sector) %&gt;%
+  
+  summarise(count = n()) 
+
+#create a bar plot
+
+ggplot(companies_by_sector,
+       aes(x = reorder(sector, count), y = count)) + 
+  
+  geom_col(fill = &quot;#1380A1&quot;) + 
+  
+  theme_bw()+
+  
+  theme(plot.title = element_text(face = &#39;bold&#39;, size = 15), 
+        axis.text.x = element_text(size = 8), 
+        axis.text.y = element_text(size= 8)) +
+
+# add label to each bar
+  geom_label(aes(label = count), 
+             hjust = 1,
+             vjust = 0.5,
+             fill = NA,
+             label.size = NA,
+             color = &#39;White&#39;,
+             size = 4) +
+  
+  labs(x = &quot;&quot;, 
+       y = &quot;Number of Companies&quot;, 
+       title = &#39;Finance &amp; Consumer companies reign NYSE&#39;,
+       subtitle = &#39;NYSE number of companies by sector&#39;) +
+  
+  coord_flip()</code></pre>
+<p><img src="/Projects/Project3/index_files/figure-html/unnamed-chunk-2-1.png" width="648" style="display: block; margin: auto;" /></p>
+<blockquote>
+<p>From the table and the plot we can infer that Finance and Consumer Services stocks reign NYSE. Transportation and Consumer Durables on the other hand are the least represented industries.</p>
+</blockquote>
+<p>Next, we choose six stocks and their ticker symbols and download the respective data.</p>
+<pre class="r"><code># Notice the cache=TRUE argument in the chunk options. Because getting data is time consuming
+
+# cache=TRUE means that once it downloads data, the chunk will not run again next time you knit your Rmd
+
+myStocks &lt;- c(&quot;AXP&quot;,&quot;BLK&quot;,&quot;KO&quot;,&quot;AMZN&quot;,&quot;MCD&quot;,&quot;BP&quot;,&quot;SPY&quot; ) %&gt;%
+  
+  tq_get(get  = &quot;stock.prices&quot;,
+         from = &quot;2011-01-01&quot;,
+         to   = &quot;2020-08-31&quot;) %&gt;%
+  
+  group_by(symbol)
+
+# examine the resulting data frame
+
+glimpse(myStocks) </code></pre>
+<pre><code>## Rows: 17,017
+## Columns: 8
+## Groups: symbol [7]
+## $ symbol   &lt;chr&gt; &quot;AXP&quot;, &quot;AXP&quot;, &quot;AXP&quot;, &quot;AXP&quot;, &quot;AXP&quot;, &quot;AXP&quot;, &quot;AXP&quot;, &quot;AXP&quot;, &quot;A...
+## $ date     &lt;date&gt; 2011-01-03, 2011-01-04, 2011-01-05, 2011-01-06, 2011-01-0...
+## $ open     &lt;dbl&gt; 43.3, 44.4, 44.1, 45.4, 44.9, 44.2, 45.0, 45.4, 44.8, 44.9...
+## $ high     &lt;dbl&gt; 43.6, 44.4, 45.2, 45.6, 45.0, 44.6, 45.4, 45.8, 45.4, 46.6...
+## $ low      &lt;dbl&gt; 43.1, 43.2, 43.9, 44.5, 44.0, 44.0, 44.8, 44.8, 44.8, 44.9...
+## $ close    &lt;dbl&gt; 43.4, 44.0, 45.0, 44.7, 44.4, 44.5, 45.0, 45.0, 45.1, 46.2...
+## $ volume   &lt;dbl&gt; 7633300, 14066300, 10655300, 6347100, 6387800, 5468000, 59...
+## $ adjusted &lt;dbl&gt; 37.4, 37.9, 39.0, 38.7, 38.4, 38.5, 39.0, 38.9, 39.0, 40.0...</code></pre>
+<p>Since the financial performance of a stock largely depends on a company’s returns, we now calculate daily and monthly returns.</p>
+<pre class="r"><code>#calculate daily returns
+
+myStocks_returns_daily &lt;- myStocks %&gt;%
+  
+  tq_transmute(select     = adjusted, 
+               mutate_fun = periodReturn, 
+               period     = &quot;daily&quot;, 
+               type       = &quot;log&quot;,
+               col_rename = &quot;daily_returns&quot;,
+               cols = c(nested.col))  
+
+#calculate monthly  returns
+
+myStocks_returns_monthly &lt;- myStocks %&gt;%
+  
+  tq_transmute(select     = adjusted, 
+               mutate_fun = periodReturn, 
+               period     = &quot;monthly&quot;, 
+               type       = &quot;arithmetic&quot;,
+               col_rename = &quot;monthly_returns&quot;,
+               cols = c(nested.col)) </code></pre>
+<p>Now that we have specified monthly and daily returns we can create a table containing the return data for the selected stocks.</p>
+<pre class="r"><code>myStocks_returns_monthly_summary &lt;- myStocks_returns_monthly %&gt;%
+  
+  group_by(symbol) %&gt;%
+  
+  summarise(min = min(monthly_returns), 
+            median = median(monthly_returns), 
+            max = max(monthly_returns), 
+            mean = mean(monthly_returns), 
+            sd = sd(monthly_returns))
+
+# calculate summary statistics for monthly returns
+
+myStocks_returns_monthly_summary %&gt;%
+  
+  kable() %&gt;% 
+  
+  kable_styling()</code></pre>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+symbol
+</th>
+<th style="text-align:right;">
+min
+</th>
+<th style="text-align:right;">
+median
+</th>
+<th style="text-align:right;">
+max
+</th>
+<th style="text-align:right;">
+mean
+</th>
+<th style="text-align:right;">
+sd
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+AMZN
+</td>
+<td style="text-align:right;">
+-0.202
+</td>
+<td style="text-align:right;">
+0.025
+</td>
+<td style="text-align:right;">
+0.269
+</td>
+<td style="text-align:right;">
+0.029
+</td>
+<td style="text-align:right;">
+0.082
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AXP
+</td>
+<td style="text-align:right;">
+-0.227
+</td>
+<td style="text-align:right;">
+0.011
+</td>
+<td style="text-align:right;">
+0.132
+</td>
+<td style="text-align:right;">
+0.011
+</td>
+<td style="text-align:right;">
+0.060
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BLK
+</td>
+<td style="text-align:right;">
+-0.144
+</td>
+<td style="text-align:right;">
+0.022
+</td>
+<td style="text-align:right;">
+0.183
+</td>
+<td style="text-align:right;">
+0.014
+</td>
+<td style="text-align:right;">
+0.062
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BP
+</td>
+<td style="text-align:right;">
+-0.221
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+<td style="text-align:right;">
+0.225
+</td>
+<td style="text-align:right;">
+0.001
+</td>
+<td style="text-align:right;">
+0.065
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+KO
+</td>
+<td style="text-align:right;">
+-0.165
+</td>
+<td style="text-align:right;">
+0.012
+</td>
+<td style="text-align:right;">
+0.084
+</td>
+<td style="text-align:right;">
+0.007
+</td>
+<td style="text-align:right;">
+0.041
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MCD
+</td>
+<td style="text-align:right;">
+-0.148
+</td>
+<td style="text-align:right;">
+0.012
+</td>
+<td style="text-align:right;">
+0.139
+</td>
+<td style="text-align:right;">
+0.012
+</td>
+<td style="text-align:right;">
+0.044
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SPY
+</td>
+<td style="text-align:right;">
+-0.125
+</td>
+<td style="text-align:right;">
+0.015
+</td>
+<td style="text-align:right;">
+0.127
+</td>
+<td style="text-align:right;">
+0.011
+</td>
+<td style="text-align:right;">
+0.038
+</td>
+</tr>
+</tbody>
+</table>
+<p>We now create a density plot, using <code>geom_density()</code>, for each of the stocks to get a better sense of the distribution of the returns per stock.</p>
+<pre class="r"><code>myStocks_returns_monthly %&gt;%
+  
+  # only display density of the stocks
+  
+  filter(symbol != &quot;SPY&quot;) %&gt;%
+  
+  # add some color
+  
+  ggplot(aes(x = monthly_returns, fill = symbol)) +
+  
+  geom_density() + 
+  
+   # create a plot for each stock
+  
+  facet_wrap(~symbol) +
+  
+  labs(title = &quot;Distribution of monthly returns per stock&quot;, 
+       x = &quot;Monthly returns&quot;,
+       y = &quot;Density&quot;) +
+  
+  # hide legend
+  
+  theme(legend.position = &quot;none&quot;) </code></pre>
+<p><img src="/Projects/Project3/index_files/figure-html/density_monthly_returns-1.png" width="648" style="display: block; margin: auto;" /></p>
+<blockquote>
+<p>From this plot, we can infer that Blackrock (BLK) is the riskiest stock with the highest volatility given the broad distribution / deviation from 0.0 of BLK returns. On the other hand, Coca Cola (KO) is the least risky as the plot for Coca Cola displays a very low deviation of returns from 0.0.</p>
+</blockquote>
+<p>Finally, we plot the relationship between mean expected monthly returns and the return’s standard deviation.</p>
+<pre class="r"><code>myStocks_returns_monthly_summary %&gt;% 
+  
+  # only display the stocks
+  
+  filter(symbol != &quot;SPY&quot;) %&gt;% 
+  
+  # plot scatterplot and increase size of points
+  
+  ggplot(aes(x=sd, y = mean,
+             label = symbol)) +
+  
+  geom_point(aes(colour = symbol),
+             size = 4) +
+  
+  # add labels to the points
+  
+  ggrepel::geom_text_repel(aes(colour = symbol)) + 
+  
+  # add title and labels to graph
+  
+  labs(title = &#39;Do higher risks yield higher returns?&#39;,
+       subtitle = &#39;Risk/Return Profile of selected Stocks&#39;,
+       x = &#39;Risk (SD of monthly returns)&#39;, 
+       y =&quot;Average monthly return&quot;) +
+  
+  # use a nice theme
+  
+  theme_bw() + 
+  
+  # display x values as percentages
+  
+  scale_x_continuous(labels = scales::percent) + 
+  
+  # display y values as percentages
+  
+  scale_y_continuous(labels = scales::percent) + 
+  
+  # hide legend
+  
+  theme(legend.position = &quot;none&quot;) </code></pre>
+<p><img src="/Projects/Project3/index_files/figure-html/risk_return_plot-1.png" width="648" style="display: block; margin: auto;" /></p>
+<blockquote>
+<p>The plot shows Amazon (AMZN) is the stock with the strongest risk-reward profile: It yields the highest average monthly returns and is the riskiest of the selected stocks as indicated by its position on the top right corner of the graph. Indeed, higher risks generally lead to a higher mean monthly return. However, BP’s position proves that a high risk does not necessarily imply a high return - BP has the lowest monthly returns while the BP stock is the second riskiest.</p>
+</blockquote>

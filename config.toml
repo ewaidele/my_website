@@ -93,27 +93,27 @@ disqusShortname = ""
     
     [[params.tiles.showcase]]
       title = "CV"
-      subtitle = "Learn more about my career path"
+      subtitle = "Learn More About My Career Path"
       image = "CV.jpg"
       url = "docs/CV_Elia Waidele.pdf"
     
     [[params.tiles.showcase]]
-      title = "Does Steven Spielberg beat Tim Burton in IMDB ratings?"
+      title = "Does Steven Spielberg Beat Tim Burton In IMDB Ratings?"
       subtitle = "IMDB Data Analysis"
       image = "movie.jpg"
       url = "Projects/Project1"
 
     [[params.tiles.showcase]]
-      title = "How bad is it?"
+      title = "How Bad Is It?"
       subtitle = "Climate Change and Temperature Anomalies"
       image = "weather.jpeg"
       url = "Projects/Project2"
 
     [[params.tiles.showcase]]
-      title = "Magna"
-      subtitle = "Lorem Etiam Nullam"
-      image = "pic03.jpg"
-      url = "blogs/magna"
+      title = "Returns of Financial Stocks"
+      subtitle = "Analysis of selected NYSE-listed Stocks"
+      image = "nyse.jpg"
+      url = "Projects/Project3"
 
     #[[params.tiles.showcase]]
       #title = "Ipsum"
