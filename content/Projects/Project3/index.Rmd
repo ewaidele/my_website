@@ -15,7 +15,7 @@ output:
   word_document:
     toc: yes
 ---
-![NYSE](C:\Users\eliaw\Desktop\MFA\Term 1\Data Analytics\Website\my_website\static\img\Projects\Project3\nyse.jpg)
+
 
 ```{r, setup, echo=FALSE}
 knitr::opts_chunk$set(
