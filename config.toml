@@ -146,7 +146,7 @@ disqusShortname = ""
     enable = true
     title = "About Me"
     subtitle = """I am a current Master's in Financial Analysis student at London Business School and plan to graduate in June 2021. Personal relationships as well as past practical experiences have stimulated my desiore to commence a career in Investment Banking upon graduation. While I already had the opportunity to work in international and diverse environments I expect the coming year at LBS to provide an unmathced opportunity to engage with the diverse group of smart and talented individuals LBS attarcts. Given this background as well as my specialized coursework at LBS I expect the coming year to facilitate my further development and enable me to reach my gopal of becoming a versatile financial analyst."""
-    #buttonText = "My Projects"
+    buttonText = "Home"
     #url = "Projects"
 
 
