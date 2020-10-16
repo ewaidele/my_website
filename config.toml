@@ -106,7 +106,7 @@ disqusShortname = ""
     [[params.tiles.showcase]]
       title = "How bad is it?"
       subtitle = "Climate Change and Temperature Anomalies"
-      image = "weather.jpg"
+      image = "weather.jpeg"
       url = "Projects/Project2"
 
     [[params.tiles.showcase]]
