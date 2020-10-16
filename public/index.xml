@@ -71,9 +71,9 @@ weather &amp;lt;- read_csv(&amp;quot;https://data.giss.nasa.gov/gistemp/tabledat
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/projects/project1/</guid>
-      <description>IMDb Internet Movie Database is an online database of information related to films, television programs, home videos, video games, and streaming content – including cast, production crew and personal biographies, plot summaries, trivia, ratings, and fan and critical reviews.
-Originally a fan-operated website, the database is today owned and operated by IMDb.com, Inc., a subsidiary of Amazon.
-As of January 2020, IMDb has approximately 6.5 million titles (including episodes) and 10.</description>
+      <description>IMDB Internet Movie Database is an online database of information related to films, television programs, home videos, video games, and streaming content – including cast, production crew and personal biographies, plot summaries, trivia, ratings, and fan and critical reviews.
+Originally a fan-operated website, the database is today owned and operated by IMDB.com, Inc., a subsidiary of Amazon.
+As of January 2020, IMDB has approximately 6.5 million titles (including episodes) and 10.</description>
     </item>
     
     <item>

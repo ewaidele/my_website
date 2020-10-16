@@ -2,6 +2,7 @@
 title: "Climate Change and Temperature Anomalies"
 author: ""
 date: ""
+image: "weather.jpeg"
 output:
   html_document:
     theme: flatly
@@ -810,7 +811,7 @@ SON
 </tr>
 </tbody>
 </table>
-<p>After taking a first look at the weather dataset, we clean our data by dropping variables we do not need and by bringing our data to the longer (tidy) format.</p>
+<p>After taking a first look at the weather data set, we clean our data by dropping variables we do not need and by bringing our data to the longer (tidy) format.</p>
 <pre class="r"><code>tidyweather &lt;- weather %&gt;%
   
   select(-&quot;J-D&quot;,-&quot;D-N&quot;,-&quot;DJF&quot;,-&quot;MAM&quot;,-&quot;JJA&quot;,-&quot;SON&quot;) %&gt;%

@@ -12,10 +12,6 @@ output:
     toc_float: yes
     code_folding: show
 ---
-```{r, setup, echo=FALSE}
-Sys.setlocale(category = "LC_ALL", locale = "English_United States.1252")
-```
-
 
 ```{r, setup, echo=FALSE}
 

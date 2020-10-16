@@ -2,6 +2,7 @@
 title: "Does Steven Spielberg beat Tim Burton in IMDB ratings?"
 author: ""
 date: ""
+image: "movie.jpg"
 output:
   html_document:
     theme: flatly
@@ -11,7 +12,6 @@ output:
     toc_float: yes
     code_folding: show
 ---
-
 
 ```{r, setup, echo=FALSE}
 
@@ -50,16 +50,15 @@ library(lubridate)
 library(kableExtra)
 ```
 
+IMDB [Internet Movie Database](https://www.imdb.com/) is an online database of information related to films, television programs, home videos, video games, and streaming content – including cast, production crew and personal biographies, plot summaries, trivia, ratings, and fan and critical reviews.
 
-IMDb [Internet Movie Database](https://www.imdb.com/) is an online database of information related to films, television programs, home videos, video games, and streaming content – including cast, production crew and personal biographies, plot summaries, trivia, ratings, and fan and critical reviews.
+Originally a fan-operated website, the database is today owned and operated by IMDB.com, Inc., a subsidiary of Amazon.
 
-Originally a fan-operated website, the database is today owned and operated by IMDb.com, Inc., a subsidiary of Amazon.
-
-As of January 2020, IMDb has approximately 6.5 million titles (including episodes) and 10.4 million personalities in its database as well as 83 million registered users.
+As of January 2020, IMDB has approximately 6.5 million titles (including episodes) and 10.4 million personalities in its database as well as 83 million registered users.
 
 In the following I will explore the difference in IMDB ratings for Steven Spielberg and Tim Burton movies.
 
-First, I take a look at the IMDB Dataset using `skimr::skim` and construct a table containing summary statistics to get an overview of the IMDb dataset.
+First of all, I take a look at the IMDB data set using `skimr::skim` and construct a table containing summary statistics to get an overview of the IMDB data set.
 
 ```{r load-movies-data}
 movies <- read_csv("movies.csv")
@@ -191,7 +190,7 @@ ggplot(selected_directors, aes(
 
 ```
 
->The plot displays a difference in the mean IMDb ratings for the directors although there is an opverlap in ratings. 
+>The plot displays a difference in the mean IMDb ratings for the directors although there is an overlap in ratings. Beyond that the ratings for Tim Burton movies is spread wider around the mean than the Steven Spielberg ratings. 
 
 To test for a difference in mean ratings for Steven Spielberg and Tim Burton movies, I will perform a hypothesis test with the hypotheses being:
 

@@ -2,6 +2,7 @@
 title: "Does Steven Spielberg beat Tim Burton in IMDB ratings?"
 author: ""
 date: ""
+image: "movie.jpg"
 output:
   html_document:
     theme: flatly
@@ -16,11 +17,11 @@ output:
 <link href="/rmarkdown-libs/lightable/lightable.css" rel="stylesheet" />
 
 
-<p>IMDb <a href="https://www.imdb.com/">Internet Movie Database</a> is an online database of information related to films, television programs, home videos, video games, and streaming content – including cast, production crew and personal biographies, plot summaries, trivia, ratings, and fan and critical reviews.</p>
-<p>Originally a fan-operated website, the database is today owned and operated by IMDb.com, Inc., a subsidiary of Amazon.</p>
-<p>As of January 2020, IMDb has approximately 6.5 million titles (including episodes) and 10.4 million personalities in its database as well as 83 million registered users.</p>
+<p>IMDB <a href="https://www.imdb.com/">Internet Movie Database</a> is an online database of information related to films, television programs, home videos, video games, and streaming content – including cast, production crew and personal biographies, plot summaries, trivia, ratings, and fan and critical reviews.</p>
+<p>Originally a fan-operated website, the database is today owned and operated by IMDB.com, Inc., a subsidiary of Amazon.</p>
+<p>As of January 2020, IMDB has approximately 6.5 million titles (including episodes) and 10.4 million personalities in its database as well as 83 million registered users.</p>
 <p>In the following I will explore the difference in IMDB ratings for Steven Spielberg and Tim Burton movies.</p>
-<p>First, I take a look at the IMDB Dataset using <code>skimr::skim</code> and construct a table containing summary statistics to get an overview of the IMDb dataset.</p>
+<p>First of all, I take a look at the IMDB data set using <code>skimr::skim</code> and construct a table containing summary statistics to get an overview of the IMDB data set.</p>
 <pre class="r"><code>movies &lt;- read_csv(&quot;movies.csv&quot;)
 skim(movies)</code></pre>
 <table style='width: auto;'
@@ -744,7 +745,7 @@ ggplot(selected_directors, aes(
   theme(aspect.ratio=3.5/5) </code></pre>
 <p><img src="/Projects/Project1/index_files/figure-html/unnamed-chunk-2-1.png" width="648" style="display: block; margin: auto;" /></p>
 <blockquote>
-<p>The plot displays a difference in the mean IMDb ratings for the directors although there is an opverlap in ratings.</p>
+<p>The plot displays a difference in the mean IMDb ratings for the directors although there is an overlap in ratings. Beyond that the ratings for Tim Burton movies is spread wider around the mean than the Steven Spielberg ratings.</p>
 </blockquote>
 <p>To test for a difference in mean ratings for Steven Spielberg and Tim Burton movies, I will perform a hypothesis test with the hypotheses being:</p>
 <ol style="list-style-type: decimal">

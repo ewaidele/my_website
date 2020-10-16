@@ -2,6 +2,7 @@
 title: "Climate Change and Temperature Anomalies"
 author: ""
 date: ""
+image: "weather.jpeg"
 output:
   html_document:
     theme: flatly
@@ -65,7 +66,7 @@ weather <-
 skim(weather)
 ```
 
-After taking a first look at the weather dataset, we clean our data by dropping variables we do not need and by bringing our data to the longer (tidy) format.
+After taking a first look at the weather data set, we clean our data by dropping variables we do not need and by bringing our data to the longer (tidy) format.
 
 ```{r tidyweather}
 
@@ -87,8 +88,8 @@ skim(tidyweather)
 Our new dataframe now has three variables, one each for 
 
 1. year, 
-1. month, and 
-1. delta, or temperature deviation.
+2. month, and 
+3. delta, or temperature deviation.
 
 ## Plotting Information
 
@@ -264,6 +265,7 @@ formula_ci %>%
   kable_styling()
 
 ```
+
 ### 2. Bootstrap simulation using `infer` package
 
 ```{r, calculate_CI_using_bootstrap}
