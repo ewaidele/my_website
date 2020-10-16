@@ -92,6 +92,12 @@ disqusShortname = ""
     # Display your showcases here.
     
     [[params.tiles.showcase]]
+      title = "CV"
+      subtitle = "Learn more about my career path"
+      image = "CV.jpg"
+      url = "docs/CV_Elia Waidele"
+    
+    [[params.tiles.showcase]]
       title = "Does Steven Spielberg beat Tim Burton in IMDB ratings?"
       subtitle = "IMDB Data Analysis"
       image = "movie.jpg"
