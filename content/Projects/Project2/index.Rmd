@@ -2,6 +2,7 @@
 title: "Climate Change and Temperature Anomalies"
 author: ""
 date: ""
+image: "weather.jpeg"
 output:
   html_document:
     theme: flatly
