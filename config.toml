@@ -95,7 +95,7 @@ disqusShortname = ""
       title = "CV"
       subtitle = "Learn more about my career path"
       image = "CV.jpg"
-      url = "docs/CV_Elia Waidele"
+      url = "docs/CV_Elia Waidele.pdf"
     
     [[params.tiles.showcase]]
       title = "Does Steven Spielberg beat Tim Burton in IMDB ratings?"
