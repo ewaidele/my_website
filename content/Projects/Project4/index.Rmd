@@ -1,0 +1,169 @@
+---
+title: 'Where Do People Drink The Most Beer, Wine And Spirits?'
+author: ""
+date: ""
+output:
+  html_document:
+    theme: flatly
+    highlight: zenburn
+    number_sections: yes
+    toc: yes
+    toc_float: yes
+    code_folding: show
+  pdf_document:
+    toc: yes
+  word_document:
+    toc: yes
+---
+
+
+```{r, setup, echo=FALSE}
+knitr::opts_chunk$set(
+  message = FALSE, 
+  warning = FALSE,
+  # display code as typed
+  tidy=FALSE,     
+  # slightly smaller font for code
+  size="small")   
+options(digits = 3)
+
+# default figure size
+knitr::opts_chunk$set(
+  fig.width=6.75, 
+  fig.height=6.75,
+  fig.align = "center"
+)
+```
+
+
+```{r load-libraries, warning=FALSE, message=FALSE, echo=FALSE}
+library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
+library(mosaic)
+library(ggthemes)
+library(lubridate)
+library(fivethirtyeight)
+library(here)
+library(skimr)
+library(janitor)
+library(vroom)
+library(tidyquant)
+library(rvest)    # scrape websites
+library(purrr)  
+library(lubridate) #to handle dates
+library(kableExtra)
+library(knitr)
+library(dplyr)
+library(gapminder)
+library(ggplot2)
+library(patchwork)
+library(scales)
+library(tidytext)
+```
+
+Back in 2014, [fivethiryeight.com](https://fivethirtyeight.com/features/dear-mona-followup-where-do-people-drink-the-most-beer-wine-and-spirits/) published an article on alcohol consumption in different countries. We load The data `drinks` as part of the `fivethirtyeight` package. 
+
+
+```{r, load_alcohol_data}
+
+library(fivethirtyeight)
+data(drinks)
+
+```
+
+First of all we take a look at our data set via `glimpse` and `skimr::skim` to get a better understanding of our data, the variable types included in the data set and the occurance of missing values.
+
+```{r glimpse_skim_data}
+
+glimpse(drinks)
+skim(drinks)
+
+```
+
+> The skim above shows that there are no missing values. The data set includes character and numeric variables
+
+To make further sense we start plotting the top 25 beer consuming countries
+
+```{r beer_plot}
+
+top25_beer <- drinks %>%
+  
+  arrange(desc(beer_servings)) %>% 
+  
+  head(25)
+
+ggplot(data = top25_beer) +
+  
+  geom_bar(stat = "identity",
+           fill = 'yellow',
+           mapping = aes(y = reorder(country, beer_servings),
+                         x = beer_servings))+
+  
+  labs(y = "Country",
+       x = "Servings per person") +
+  
+  facet_grid()+
+  
+  labs(title = "Top 25 Beer Consuming Countries",
+       subtitle = "2010 Data, servings per person")
+
+```
+
+> From the first plot it can be inferred that beer is probably one of the most widely accepted / appreciated alcoholic beverages as the countries included in the top 25 beer consuming countries spread across various continents. However, the majority of countries with high beer consumption are European which may be due to geological differences and special requirements for growing wheat / hops or other ingredients. Surprisingly, the country with the highest beer consumption is Namibia rather than countries known for their beer consumption and their breweries like Germany or Ireland.
+
+Which are the top 25 wine-consuming countries?
+
+```{r wine_plot}
+
+top25_wine <- drinks %>%
+  
+  arrange(desc(wine_servings)) %>%
+  
+  head(25)
+
+ggplot(data = top25_wine) + 
+  
+  geom_bar(stat = "identity",
+           fill = 'red',
+           mapping = aes(y = reorder(country, wine_servings),
+                         x = wine_servings))+
+  
+  labs(y="Country",
+       x="Servings per person") + 
+  
+  facet_grid()+
+  
+  labs(title = "Top 25 Wine Consuming Countries",
+       subtitle = "2010 Data, servings per person")
+
+```
+
+> The top 3 wine consuming countries are France, Portugal and Andorra. These graphs reveal individual countries frequently prefer one specific alcoholic beverage. This can be explained by natural endowments that allow countries to develop alcoholic beverages through their fertile land. For example, the Bordeaux region in France and the Douro Valley in Portugal have lands that enable the production of wines at high quality and in mass quantity.
+
+Finally, we take a look at the top 25 spirit consuming countries
+
+```{r spirit_plot}
+
+top25_spirits <- drinks %>% 
+  
+  arrange(desc(spirit_servings)) %>% 
+  
+  head(25)
+
+ggplot(data = top25_spirits) + 
+  
+  geom_bar(stat = "identity",
+           fill = 'pink',
+           mapping = aes(y = reorder(country, spirit_servings),
+                         x = spirit_servings))+
+  
+  labs(y ="Country",
+       x ="Servings per person") +
+  
+  facet_grid()+
+  
+  labs(title = "Top 25 Spirits Consuming Countries",
+       subtitle = "2010 Data, servings per person")
+
+```
+
+> Of the top 5 countries that consume the most spirits, 3 are in the Caribbean. This isn't entirely surprising, considering the murky history of rum, as commonly associated with drunken sailors and the infamous triangular slave trade. The amber nectar, which was discovered when waste from sugar cane production was fermented, emblematises the Caribbean spirit. Therefore, it is no wonder that we can notice such a strong representation from this region near the top of the list. As we move down the rankings, so too do we venture more East. For example, we can see that vodka influences Central Europe and Russia. The graph is interesting in a different way to the others - Typically, different spirits are more commonly localised in specific regions, where they are drank as a matter of tradition, and variation occurs within the specific spirit level, rather than within the wider type of spirit level. To test this hypothesis, it would be useful to analyse a dataset that was broken into types of spirit consumer per nation and contrast that with this data.

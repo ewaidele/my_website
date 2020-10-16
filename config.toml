@@ -115,11 +115,11 @@ disqusShortname = ""
       image = "nyse.jpg"
       url = "Projects/Project3"
 
-    #[[params.tiles.showcase]]
-      #title = "Ipsum"
-      #subtitle = "Nisl Sed Aliquam"
-      #image = "pic04.jpg"
-      #url = "blogs/ipsum"
+    [[params.tiles.showcase]]
+      title = "Where Do People Drink The Most Beer, Wine And Spirits?"
+      subtitle = "Analysis of Consumption behavior of different countries"
+      image = "alcohol.jpg"
+      url = "Projects/Project4"
 
     #[[params.tiles.showcase]]
       #title = "Consequat"
