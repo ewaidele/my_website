@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on Portfolio Website for Elia Waidele</title>
+    <link>/projects/</link>
+    <description>Recent content in Projects on Portfolio Website for Elia Waidele</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Does Steven Spielberg beat Tim Burton in IMDB ratings?</title>
+      <link>/projects/project1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/project1/</guid>
+      <description>IMDb Internet Movie Database is an online database of information related to films, television programs, home videos, video games, and streaming content – including cast, production crew and personal biographies, plot summaries, trivia, ratings, and fan and critical reviews.
+Originally a fan-operated website, the database is today owned and operated by IMDb.com, Inc., a subsidiary of Amazon.
+As of January 2020, IMDb has approximately 6.5 million titles (including episodes) and 10.</description>
+    </item>
+    
+  </channel>
+</rss>
