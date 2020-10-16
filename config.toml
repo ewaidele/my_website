@@ -109,23 +109,23 @@ disqusShortname = ""
       image = "pic03.jpg"
       url = "blogs/magna"
 
-    [[params.tiles.showcase]]
-      title = "Ipsum"
-      subtitle = "Nisl Sed Aliquam"
-      image = "pic04.jpg"
-      url = "blogs/ipsum"
+    #[[params.tiles.showcase]]
+      #title = "Ipsum"
+      #subtitle = "Nisl Sed Aliquam"
+      #image = "pic04.jpg"
+      #url = "blogs/ipsum"
 
-    [[params.tiles.showcase]]
-      title = "Consequat"
-      subtitle = "Ipsum Dolor Sit Amet"
-      image = "pic05.jpg"
-      url = "blogs/ipsum"
+    #[[params.tiles.showcase]]
+      #title = "Consequat"
+      #subtitle = "Ipsum Dolor Sit Amet"
+      #image = "pic05.jpg"
+      #url = "blogs/ipsum"
 
-    [[params.tiles.showcase]]
-      title = "Etiam"
-      subtitle = "Feugiat Amet Tempus"
-      image = "pic06.jpg"
-      url = "blogs/ipsum"
+    #[[params.tiles.showcase]]
+      #title = "Etiam"
+      #subtitle = "Feugiat Amet Tempus"
+      #image = "pic06.jpg"
+      #url = "blogs/ipsum"
     # You can make more showcases by copy and pasting the code above
 
   [params.blog]
@@ -138,13 +138,9 @@ disqusShortname = ""
   # Section Type Two
   [params.two]
     enable = true
-    title = "Massa libero"
-    subtitle = """Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. 
-    Mauris aliquet magna magna sed nunc rhoncus pharetra. 
-    Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. 
-    Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero.
-    Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus."""
-    buttonText = "Get Started"
+    title = "About Me"
+    subtitle = """I am a current Master's in Financial Analysis student at London Business School and plan to graduate in June 2021. Personal relationships as well as past practical experiences have stimulated my desiore to commence a career in Investment Banking upon graduation. While I already had the opportunity to work in international and diverse environments I expect the coming year at LBS to provide an unmathced opportunity to engage with the diverse group of smart and talented individuals LBS attarcts. Given this background as well as my specialized coursework at LBS I expect the coming year to facilitate my further development and enable me to reach my gopal of becoming a versatile financial analyst."""
+    buttonText = "My Projects"
     url = "blogs"
 
 
@@ -187,7 +183,7 @@ disqusShortname = ""
   # Footer section
   [params.footer]
     enable = true
-    copyright = "Elia Manuel Waidele"
+    copyright = "Elia Waidele"
 
     # Uses font awesome icons
    #[[params.footer.social]]
@@ -205,17 +201,17 @@ disqusShortname = ""
       #url= "https://www.instagram.com"
       #label = "Instagram"
     
-    #[[params.footer.social]]
-      #icon = "fa-github"
-      #url= "https://www.github.com"
-      #label = "GitHub"
+    [[params.footer.social]]
+      icon = "fa-github"
+      url= "https://github.com/ewaidele"
+      label = "GitHub"
 
     [[params.footer.social]]
       icon = "fa-linkedin"
       url= "https://www.linkedin.com/in/elia-waidele-668312151/"
       label = "LinkedIn"
 
-    [[params.footer.quicklinks]]
-      text = ""
-      url= ""
-      alt = ""
+    #[[params.footer.quicklinks]]
+      #text = ""
+      #url= ""
+      #alt = ""
