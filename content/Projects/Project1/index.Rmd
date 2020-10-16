@@ -88,7 +88,7 @@ selected_directors %>%
   
   kable() %>%
   
-  kable_classic()
+  kable_styling()
 
 ```
 >While the table already shows differences in mean ratings for the two directors, we construct a boxplot to make more sense of our datas in the folowing. 
@@ -248,7 +248,7 @@ kbl(p_value,
     col.names=c("p-value"),
     caption="Null distribution") %>%
 
-kable_classic()
+kable_styling()
 
 ```
 
