@@ -261,7 +261,7 @@ formula_ci %>%
   
   kbl(caption = 'Confidence Interval for the Annual Delta since 2011')%>%
   
-  kable_classic()
+  kable_styling()
 
 ```
 ### 2. Bootstrap simulation using `infer` package
@@ -290,7 +290,7 @@ infer_ci %>%
   
   kbl(caption = 'Confidence Interval for the Annual Delta since 2011 using bootstrapping')%>%
   
-  kable_classic()
+  kable_styling()
 
 ```
 
