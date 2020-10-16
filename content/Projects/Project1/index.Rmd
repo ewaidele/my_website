@@ -2,6 +2,7 @@
 title: "Does Steven Spielberg beat Tim Burton in IMDB ratings?"
 author: ""
 date: ""
+image: "movie.jpg"
 output:
   html_document:
     theme: flatly
@@ -11,8 +12,6 @@ output:
     toc_float: yes
     code_folding: show
 ---
-![IMDB](\Users\eliaw\Desktop\Website\movie.jpg)
-
 
 ```{r, setup, echo=FALSE}
 
@@ -50,8 +49,6 @@ library(scales)
 library(lubridate)
 library(kableExtra)
 ```
-
-![IMDB](\Users\eliaw\Desktop\Website\movie.jpg)
 
 IMDb [Internet Movie Database](https://www.imdb.com/) is an online database of information related to films, television programs, home videos, video games, and streaming content – including cast, production crew and personal biographies, plot summaries, trivia, ratings, and fan and critical reviews.
 
