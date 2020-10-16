@@ -95,7 +95,7 @@ disqusShortname = ""
       title = "Does Steven Spielberg beat Tim Burton in IMDB ratings?"
       subtitle = "IMDB Data Analysis"
       image = "movie.jpg"
-      url = "blogs/Directors"
+      url = "blogs/Project1"
 
     [[params.tiles.showcase]]
       title = "Tempus"
