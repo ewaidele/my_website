@@ -2,6 +2,7 @@
 title: "Returns of Financial Stocks"
 author: ""
 date: ""
+image: "nyse.jpg"
 output:
   html_document:
     theme: flatly

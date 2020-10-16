@@ -2,6 +2,7 @@
 title: 'Where Do People Drink The Most Beer, Wine And Spirits?'
 author: ""
 date: ""
+image: "alcohol.jpg"
 output:
   html_document:
     theme: flatly
