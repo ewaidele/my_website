@@ -37,7 +37,7 @@ disqusShortname = ""
 
   # Navigation Section
   [params.navigation]
-    title = "Elia Waidele"
+    title = "Elia Waidele's Portfolio Website"
     #subtitle = "Hello World!"
     menu = "Menu"
     # Optional logo as brand stored in img/
@@ -47,17 +47,17 @@ disqusShortname = ""
       name = "Home"
       url = "#"
 
-   # [[params.navigation.links]]
-      name = "Blogs"
+    [[params.navigation.links]]
+      name = "Projects"
       url = "blogs"
 
-  #  [[params.navigation.links]]
-      name = "Generic Blog"
-      url = "blogs/ipsum"
+    # [[params.navigation.links]]
+    # name = "Generic Blog"
+    # url = "blogs/ipsum"
 
    # [[params.navigation.links]]
-      name = "Elements"
-      url = "elements.html"
+   # name = "Elements"
+   # url = "elements.html"
 
     # Add custom links here by uncommenting code below. To remove links just delete
     # the [[params.navigation.links]] map associated with that link. Copy and paste
@@ -67,23 +67,23 @@ disqusShortname = ""
     #    url = "UrlOfLink"
 
     # Button Style 1
-   # [[params.navigation.button1]]
-      name = "Get Started"
-      url = "blogs"
+    # [[params.navigation.button1]]
+    # name = "Get Started"
+    # url = "blogs"
 
     # Button Style 2
-   # [[params.navigation.button2]]
-      name = "Log In"
-      url = "#"
+    # [[params.navigation.button2]]
+    # name = "Log In"
+    # url = "#"
 
 
   # Banner section
   [params.banner]
     # To change the background image on the homepage banner, replace 'banner.jpg' in
     # the 'static/img' folder.
-    title = "Hi, my name is Elia Waidele"
+    title = "Hi, my name is Elia"
     subtitle = "WELCOME TO MY PORTFOLIO WEBSITE!"
-    buttonText = "Get Started!"
+    buttonText = "My Projects"
 
 
   # Tiles Section
@@ -92,10 +92,10 @@ disqusShortname = ""
     # Display your showcases here.
     
     [[params.tiles.showcase]]
-      title = "Ipsum"
-      subtitle = "Ipsum Dolor Sit Amet"
-      image = "pic01.jpg"
-      url = "blogs/aliquam"
+      title = "Does Steven Spielberg beat Tim Burton in IMDB ratings?"
+      subtitle = "IMDB Data Analysis"
+      image = "movie.jpg"
+      url = "blogs/Directors"
 
     [[params.tiles.showcase]]
       title = "Tempus"
