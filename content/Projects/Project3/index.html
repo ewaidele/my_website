@@ -1,6 +1,5 @@
 ---
 title: "Returns of Financial Stocks"
-image: nyse.jpg
 author: ""
 date: ""
 output:
@@ -21,6 +20,10 @@ output:
 <link href="/rmarkdown-libs/lightable/lightable.css" rel="stylesheet" />
 
 
+<div class="figure">
+<img src="C:/Users/eliaw/Desktop/MFA/Term%201/Data%20Analytics/Website/my_website/static/img/Projects/Project3/nyse.jpg" alt="" />
+<p class="caption">NYSE</p>
+</div>
 <p>In the following we perform analyses on Returns of a select number of Financial Stocks utilizing the monthly, yearly and daily returns to gauge behavior of these stocks over a fixed period of time. We obtain our data from the <code>nyse.csv</code> dataset which contains 508 stocks listed on the NYSE, their ticker <code>symbol</code>, <code>name</code>, the IPO year, and the sector and industry the company operates in.</p>
 <p>First of all we have to load our data set:</p>
 <pre class="r"><code>nyse &lt;- read.csv(here::here(&quot;data&quot;,&quot;nyse.csv&quot;))</code></pre>
