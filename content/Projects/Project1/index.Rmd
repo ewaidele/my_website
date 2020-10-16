@@ -11,7 +11,7 @@ output:
     toc_float: yes
     code_folding: show
 ---
-! [IMDB] (/Users/eliaw/Desktop/Website/movie.jpg)
+![IMDB](\Users\eliaw\Desktop\Website\movie.jpg)
 
 ```{r, setup, echo=FALSE}
 
