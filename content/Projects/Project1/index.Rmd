@@ -11,7 +11,7 @@ output:
     toc_float: yes
     code_folding: show
 ---
-
+! [IMDB] (\Users\eliaw\Desktop\MFA\Term 1\Data Analytics\Website\my_website\themes\forty\static\img\movie.jpg)
 
 ```{r, setup, echo=FALSE}
 
