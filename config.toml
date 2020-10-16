@@ -47,9 +47,9 @@ disqusShortname = ""
       name = "Home"
       url = "#"
 
-    #[[params.navigation.links]]
-     # name = "Projects"
-      #url = "Projects"
+    [[params.navigation.links]]
+      name = "Projects"
+      url = "Projects"
 
     # [[params.navigation.links]]
     # name = "Contact"
@@ -146,7 +146,7 @@ disqusShortname = ""
     enable = true
     title = "About Me"
     subtitle = """I am a current Master's in Financial Analysis student at London Business School and plan to graduate in June 2021. Personal relationships as well as past practical experiences have stimulated my desire to commence a career in Investment Banking upon graduation. While I already had the opportunity to work in international and diverse environments, I expect the coming year at LBS to provide the unmatched opportunity to engage with the diverse group of smart and talented individuals LBS attracts."""
-    buttonText = "Home"
+    buttonText = "My Projects"
     url = "Projects"
 
 
