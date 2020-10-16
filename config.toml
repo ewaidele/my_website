@@ -212,10 +212,10 @@ disqusShortname = ""
 
     [[params.footer.social]]
       icon = "fa-linkedin"
-      url= "linkedin.com/in/elia-waidele-668312151"
+      url= "https://www.linkedin.com/in/elia-waidele-668312151/"
       label = "LinkedIn"
 
     [[params.footer.quicklinks]]
-      text = "Design: "
-      url= "https://www.html5up.net"
-      alt = "HTML5 UP"
+      text = ""
+      url= ""
+      alt = ""
