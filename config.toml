@@ -92,7 +92,7 @@ disqusShortname = ""
     # Display your showcases here.
     
     [[params.tiles.showcase]]
-      title = "CV"
+      title = "Download my CV"
       subtitle = "Learn More About My Career Path"
       image = "CV.jpg"
       url = "docs/CV_Elia Waidele.pdf"
