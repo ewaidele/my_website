@@ -183,7 +183,7 @@ disqusShortname = ""
     [[params.contact.address]]
     title = "London Business School"
     street = "Regent's Park"
-    city = "London,NW1 4SA"
+    city = "London, NW1 4SA"
     country = "United Kingdom"
 
   # Footer section
