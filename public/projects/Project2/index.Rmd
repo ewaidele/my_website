@@ -237,7 +237,7 @@ ggplot(average_annual_anomaly, aes(x=Year, y= annual_average_delta))+
 
 ```
 
-> The above plot shows that in the past c. 60 years the climate faced a 1 degree change wich is significant considering the impact of small changes in temperature on the overall climate.
+> The above plot shows that in the past c. 60 years the climate faced a 1 degree change which is significant considering the impact of small changes in temperature on the overall climate.
 
 ## Confidence Interval for `delta`
 

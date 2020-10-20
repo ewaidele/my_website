@@ -85,15 +85,15 @@ tidyweather <- weather %>%
 skim(tidyweather)
 ```
 
-Our new dataframe now has three variables, one each for 
+Our new data frame now has three variables, one each for 
 
-1. year, 
-2. month, and 
-3. delta, or temperature deviation.
+1. Year, 
+2. Month, and 
+3. Delta, or temperature deviation.
 
 ## Plotting Information
 
-We plotted the data using a time-series scatter plot, and added a trendline. To do that, we first need to create a new variable called `date` in order to ensure that the `delta` values are plot chronologically. 
+We plotted the data using a time-series scatter plot, and added a trend line. To do that, we first need to create a new variable called `date` in order to ensure that the `delta` values are plot chronologically. 
 
 ```{r scatter_plot}
 
@@ -237,7 +237,7 @@ ggplot(average_annual_anomaly, aes(x=Year, y= annual_average_delta))+
 
 ```
 
-> The above plot shows that in the past c. 60 years the climate faced a 1 degree change wich is significant considering the impact of small changes in temperature on the overall climate.
+> The above plot shows that in the past c. 60 years the climate faced a 1 degree change which is significant considering the impact of small changes in temperature on the overall climate.
 
 ## Confidence Interval for `delta`
 

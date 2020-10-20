@@ -90,7 +90,7 @@ selected_directors %>%
   kable_styling()
 
 ```
->While the table already shows differences in mean ratings for the two directors, we construct a boxplot to make more sense of our datas in the folowing. 
+>While the table already shows differences in mean ratings for the two directors, we construct a boxplot to make more sense of our data in the following. 
 
 ```{r}
 
@@ -190,7 +190,7 @@ ggplot(selected_directors, aes(
 
 ```
 
->The plot displays a difference in the mean IMDb ratings for the directors although there is an overlap in ratings. Beyond that the ratings for Tim Burton movies is spread wider around the mean than the Steven Spielberg ratings. 
+>The plot displays a difference in the mean IMDB ratings for the directors although there is an overlap in ratings. Beyond that the ratings for Tim Burton movies is spread wider around the mean than the Steven Spielberg ratings. 
 
 To test for a difference in mean ratings for Steven Spielberg and Tim Burton movies, I will perform a hypothesis test with the hypotheses being:
 
