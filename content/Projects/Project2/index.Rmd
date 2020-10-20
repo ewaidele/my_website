@@ -86,7 +86,6 @@ skim(tidyweather)
 ```
 
 Our new data frame now has three variables, one each for 
-
 1. Year, 
 2. Month, and 
 3. Delta, or temperature deviation.
