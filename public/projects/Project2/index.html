@@ -1140,15 +1140,13 @@ delta
 </tr>
 </tbody>
 </table>
-<p>Our new dataframe now has three variables, one each for</p>
-<ol style="list-style-type: decimal">
-<li>year,</li>
-<li>month, and</li>
-<li>delta, or temperature deviation.</li>
-</ol>
+<p>Our new data frame now has three variables, one each for
+1. Year,
+2. Month, and
+3. Delta, or temperature deviation.</p>
 <div id="plotting-information" class="section level2">
 <h2>Plotting Information</h2>
-<p>We plotted the data using a time-series scatter plot, and added a trendline. To do that, we first need to create a new variable called <code>date</code> in order to ensure that the <code>delta</code> values are plot chronologically.</p>
+<p>We plotted the data using a time-series scatter plot, and added a trend line. To do that, we first need to create a new variable called <code>date</code> in order to ensure that the <code>delta</code> values are plot chronologically.</p>
 <pre class="r"><code>tidyweather &lt;- tidyweather %&gt;%
   
   mutate(date = ymd(paste(as.character(Year), month, &quot;1&quot;)),

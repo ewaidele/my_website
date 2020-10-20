@@ -34,7 +34,7 @@ As of January 2020, IMDB has approximately 6.5 million titles (including episode
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/projects/project3/</guid>
-      <description>In the following we perform analyses on Returns of a select number of Financial Stocks utilizing the monthly, yearly and daily returns to gauge behavior of these stocks over a fixed period of time. We obtain our data from the nyse.csv dataset which contains 508 stocks listed on the NYSE, their ticker symbol, name, the IPO year, and the sector and industry the company operates in.
+      <description>In the following we perform analyses on Returns of a select number of Financial Stocks utilizing the monthly, yearly and daily returns to gauge behavior of these stocks over a fixed period of time. We obtain our data from the nyse.csv data set which contains 508 stocks listed on the NYSE, their ticker symbol, name, the IPO year, and the sector and industry the company operates in.
 First of all we have to load our data set:</description>
     </item>
     
@@ -45,7 +45,7 @@ First of all we have to load our data set:</description>
       
       <guid>/projects/project4/</guid>
       <description>Back in 2014, fivethiryeight.com published an article on alcohol consumption in different countries. We load The data drinks as part of the fivethirtyeight package.
-library(fivethirtyeight)data(drinks)First of all we take a look at our data set via glimpse and skimr::skim to get a better understanding of our data, the variable types included in the data set and the occurance of missing values.
+library(fivethirtyeight)data(drinks)First of all we take a look at our data set via glimpse and skimr::skim to get a better understanding of our data, the variable types included in the data set and the occurrence of missing values.
 glimpse(drinks)## Rows: 193## Columns: 5## $ country &amp;lt;chr&amp;gt; &amp;quot;Afghanistan&amp;quot;, &amp;quot;Albania&amp;quot;, &amp;quot;Algeria&amp;quot;, &amp;quot;.</description>
     </item>
     

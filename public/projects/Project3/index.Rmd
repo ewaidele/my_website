@@ -61,7 +61,7 @@ library(scales)
 library(tidytext)
 ```
 
-In the following we perform analyses on Returns of a select number of Financial Stocks utilizing the monthly, yearly and daily returns to gauge behavior of these stocks over a fixed period of time. We obtain our data from the `nyse.csv` dataset which contains 508 stocks listed on the NYSE, their ticker `symbol`, `name`, the IPO year, and the sector and industry the company operates in.
+In the following we perform analyses on Returns of a select number of Financial Stocks utilizing the monthly, yearly and daily returns to gauge behavior of these stocks over a fixed period of time. We obtain our data from the `nyse.csv` data set which contains 508 stocks listed on the NYSE, their ticker `symbol`, `name`, the IPO year, and the sector and industry the company operates in.
 
 First of all we have to load our data set:
 
@@ -294,4 +294,4 @@ myStocks_returns_monthly_summary %>%
 
 ```
 
-> The plot shows Amazon (AMZN) is the stock with the strongest risk-reward profile: It yields the highest average monthly returns and is the riskiest of the selected stocks as indicated by its position on the top right corner of the graph. Indeed, higher risks generally lead to a higher mean monthly return. However, BP's position proves that a high risk does not necessarily imply a high return - BP has the lowest monthly returns while the BP stock is the second riskiest. 
+> The plot shows Amazon (AMZN) is the stock with the strongest risk-reward profile: It yields the highest average monthly returns and is the riskiest of the selected stocks as indicated by its position in the top right corner of the graph. Indeed, higher risks generally lead to a higher mean monthly return. However, BP's position proves that a high risk does not necessarily imply a high return - BP has the lowest monthly returns while the BP stock is the second riskiest. 

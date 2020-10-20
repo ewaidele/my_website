@@ -80,7 +80,7 @@
 <p>Back in 2014, <a href="https://fivethirtyeight.com/features/dear-mona-followup-where-do-people-drink-the-most-beer-wine-and-spirits/">fivethiryeight.com</a> published an article on alcohol consumption in different countries. We load The data <code>drinks</code> as part of the <code>fivethirtyeight</code> package.</p>
 <pre class="r"><code>library(fivethirtyeight)
 data(drinks)</code></pre>
-<p>First of all we take a look at our data set via <code>glimpse</code> and <code>skimr::skim</code> to get a better understanding of our data, the variable types included in the data set and the occurance of missing values.</p>
+<p>First of all we take a look at our data set via <code>glimpse</code> and <code>skimr::skim</code> to get a better understanding of our data, the variable types included in the data set and the occurrence of missing values.</p>
 <pre class="r"><code>glimpse(drinks)</code></pre>
 <pre><code>## Rows: 193
 ## Columns: 5
@@ -417,9 +417,9 @@ total_litres_of_pure_alcohol
 </tbody>
 </table>
 <blockquote>
-<p>The skim above shows that there are no missing values. The data set includes character and numeric variables</p>
+<p>The skim above shows that there are no missing values. The data set includes character and numeric variables.</p>
 </blockquote>
-<p>To make further sense we start plotting the top 25 beer consuming countries</p>
+<p>To make further sense of our data we start plotting the top 25 beer consuming countries</p>
 <pre class="r"><code>top25_beer &lt;- drinks %&gt;%
   
   arrange(desc(beer_servings)) %&gt;% 
@@ -492,7 +492,7 @@ ggplot(data = top25_spirits) +
        subtitle = &quot;2010 Data, servings per person&quot;)</code></pre>
 <p><img src="/Projects/Project4/index_files/figure-html/spirit_plot-1.png" width="648" style="display: block; margin: auto;" /></p>
 <blockquote>
-<p>Of the top 5 countries that consume the most spirits, 3 are in the Caribbean. This isn’t entirely surprising, considering the murky history of rum, as commonly associated with drunken sailors and the infamous triangular slave trade. The amber nectar, which was discovered when waste from sugar cane production was fermented, emblematises the Caribbean spirit. Therefore, it is no wonder that we can notice such a strong representation from this region near the top of the list. As we move down the rankings, so too do we venture more East. For example, we can see that vodka influences Central Europe and Russia. The graph is interesting in a different way to the others - Typically, different spirits are more commonly localised in specific regions, where they are drank as a matter of tradition, and variation occurs within the specific spirit level, rather than within the wider type of spirit level. To test this hypothesis, it would be useful to analyse a dataset that was broken into types of spirit consumer per nation and contrast that with this data.</p>
+<p>Of the top 5 countries that consume the most spirits, 3 are in the Caribbean. This isn’t entirely surprising, considering the murky history of rum, as commonly associated with drunken sailors and the infamous triangular slave trade. The amber nectar, which was discovered when waste from sugar cane production was fermented, emblematizes the Caribbean spirit. Therefore, it is no wonder that we can notice such a strong representation from this region near the top of the list. As we move down the rankings, so to do we venture more East. For example, we can see that vodka influences Central Europe and Russia. The graph is interested in a different way to the others - Typically, different spirits are more commonly localized in specific regions, where they are drank as a matter of tradition, and variation occurs within the specific spirit level, rather than within the wider type of spirit level. To test this hypothesis, it would be useful to analyze a data set that was broken into types of spirit consumer per nation and contrast that with this data.</p>
 </blockquote>
 
                         </div>

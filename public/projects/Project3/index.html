@@ -79,7 +79,7 @@
 <link href="/rmarkdown-libs/lightable/lightable.css" rel="stylesheet" />
 
 
-<p>In the following we perform analyses on Returns of a select number of Financial Stocks utilizing the monthly, yearly and daily returns to gauge behavior of these stocks over a fixed period of time. We obtain our data from the <code>nyse.csv</code> dataset which contains 508 stocks listed on the NYSE, their ticker <code>symbol</code>, <code>name</code>, the IPO year, and the sector and industry the company operates in.</p>
+<p>In the following we perform analyses on Returns of a select number of Financial Stocks utilizing the monthly, yearly and daily returns to gauge behavior of these stocks over a fixed period of time. We obtain our data from the <code>nyse.csv</code> data set which contains 508 stocks listed on the NYSE, their ticker <code>symbol</code>, <code>name</code>, the IPO year, and the sector and industry the company operates in.</p>
 <p>First of all we have to load our data set:</p>
 <pre class="r"><code>nyse &lt;- read.csv(here::here(&quot;data&quot;,&quot;nyse.csv&quot;))</code></pre>
 <p>Based on this data set, we create a table and a bar plot that display the number of companies per sector in descending order.</p>
@@ -555,7 +555,7 @@ SPY
   theme(legend.position = &quot;none&quot;) </code></pre>
 <p><img src="/Projects/Project3/index_files/figure-html/risk_return_plot-1.png" width="648" style="display: block; margin: auto;" /></p>
 <blockquote>
-<p>The plot shows Amazon (AMZN) is the stock with the strongest risk-reward profile: It yields the highest average monthly returns and is the riskiest of the selected stocks as indicated by its position on the top right corner of the graph. Indeed, higher risks generally lead to a higher mean monthly return. However, BP’s position proves that a high risk does not necessarily imply a high return - BP has the lowest monthly returns while the BP stock is the second riskiest.</p>
+<p>The plot shows Amazon (AMZN) is the stock with the strongest risk-reward profile: It yields the highest average monthly returns and is the riskiest of the selected stocks as indicated by its position in the top right corner of the graph. Indeed, higher risks generally lead to a higher mean monthly return. However, BP’s position proves that a high risk does not necessarily imply a high return - BP has the lowest monthly returns while the BP stock is the second riskiest.</p>
 </blockquote>
 
                         </div>

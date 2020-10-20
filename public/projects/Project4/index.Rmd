@@ -71,7 +71,7 @@ data(drinks)
 
 ```
 
-First of all we take a look at our data set via `glimpse` and `skimr::skim` to get a better understanding of our data, the variable types included in the data set and the occurance of missing values.
+First of all we take a look at our data set via `glimpse` and `skimr::skim` to get a better understanding of our data, the variable types included in the data set and the occurrence of missing values.
 
 ```{r glimpse_skim_data}
 
@@ -80,9 +80,9 @@ skim(drinks)
 
 ```
 
-> The skim above shows that there are no missing values. The data set includes character and numeric variables
+> The skim above shows that there are no missing values. The data set includes character and numeric variables.
 
-To make further sense we start plotting the top 25 beer consuming countries
+To make further sense of our data we start plotting the top 25 beer consuming countries
 
 ```{r beer_plot}
 
@@ -167,4 +167,4 @@ ggplot(data = top25_spirits) +
 
 ```
 
-> Of the top 5 countries that consume the most spirits, 3 are in the Caribbean. This isn't entirely surprising, considering the murky history of rum, as commonly associated with drunken sailors and the infamous triangular slave trade. The amber nectar, which was discovered when waste from sugar cane production was fermented, emblematises the Caribbean spirit. Therefore, it is no wonder that we can notice such a strong representation from this region near the top of the list. As we move down the rankings, so too do we venture more East. For example, we can see that vodka influences Central Europe and Russia. The graph is interesting in a different way to the others - Typically, different spirits are more commonly localised in specific regions, where they are drank as a matter of tradition, and variation occurs within the specific spirit level, rather than within the wider type of spirit level. To test this hypothesis, it would be useful to analyse a dataset that was broken into types of spirit consumer per nation and contrast that with this data.
+> Of the top 5 countries that consume the most spirits, 3 are in the Caribbean. This isn't entirely surprising, considering the murky history of rum, as commonly associated with drunken sailors and the infamous triangular slave trade. The amber nectar, which was discovered when waste from sugar cane production was fermented, emblematizes the Caribbean spirit. Therefore, it is no wonder that we can notice such a strong representation from this region near the top of the list. As we move down the rankings, so to do we venture more East. For example, we can see that vodka influences Central Europe and Russia. The graph is interested in a different way to the others - Typically, different spirits are more commonly localized in specific regions, where they are drank as a matter of tradition, and variation occurs within the specific spirit level, rather than within the wider type of spirit level. To test this hypothesis, it would be useful to analyze a data set that was broken into types of spirit consumer per nation and contrast that with this data.

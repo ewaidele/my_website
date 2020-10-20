@@ -85,15 +85,14 @@ tidyweather <- weather %>%
 skim(tidyweather)
 ```
 
-Our new dataframe now has three variables, one each for 
-
-1. year, 
-2. month, and 
-3. delta, or temperature deviation.
+Our new data frame now has three variables, one each for 
+1. Year, 
+2. Month, and 
+3. Delta, or temperature deviation.
 
 ## Plotting Information
 
-We plotted the data using a time-series scatter plot, and added a trendline. To do that, we first need to create a new variable called `date` in order to ensure that the `delta` values are plot chronologically. 
+We plotted the data using a time-series scatter plot, and added a trend line. To do that, we first need to create a new variable called `date` in order to ensure that the `delta` values are plot chronologically. 
 
 ```{r scatter_plot}
 
