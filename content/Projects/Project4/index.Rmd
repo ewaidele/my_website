@@ -71,7 +71,7 @@ data(drinks)
 
 ```
 
-First of all we take a look at our data set via `glimpse` and `skimr::skim` to get a better understanding of our data, the variable types included in the data set and the occurrence of missing values.
+First of all we take a look at our data set via `glimpse` and `skimr::skim` to get a better understanding of our data, the variable types included in the data set and the occurence of missing values.
 
 ```{r glimpse_skim_data}
 
